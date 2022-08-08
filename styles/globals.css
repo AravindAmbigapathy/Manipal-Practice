@@ -1,3 +1,5 @@
+/* @import './navbar.css'; */
+
 html,
 body {
   padding: 0;
@@ -13,4 +15,848 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.nav1 {
+  /* margin: 0.%; */
+  background-color: white;
+  vertical-align: middle;
+  padding-bottom: 1%;
+}
+
+.logo {
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: 0.5%;
+}
+
+.nav1 .navHalf {
+  display: inline;
+  margin-left: 38%;
+  margin-top: 0;
+  width: 100%;
+}
+.nav1 .navHalf .Asignup {
+  display: inline;
+}
+
+.modalLocation {
+  display: flex;
+}
+.modalLocation .location{
+  width: 50%;
+}
+
+.modalLocation .lct{
+  width: 50%;
+
+}
+
+
+.modalLocation li{
+  list-style: none;
+  margin: 4% 6%;
+  color: rgb(104, 101, 101);
+}
+
+.modalLocation hr{
+opacity: 20%;
+margin: 0% 3%;
+}
+
+.nav1 .select {
+  text-align: left;
+  display: inline;
+  color: #1E3A8A;
+  height: 2.9rem;
+  width: 22rem;
+  border-radius: 10px;
+  margin-right: 2%;
+  margin-bottom: 0;
+  border: 0.1em solid;
+  border-color: rgb(16,185,129);
+  font-size: 0.9em;
+  background-color: white;
+}
+
+.nav1 .name {
+  margin-top: 0;
+  display: inline-flex;
+  flex-direction: column;
+}
+.nav1 .Bsignup{
+  margin-top: 0;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.nav1 div p {
+  margin: 0;
+  padding: 0;
+}
+
+.nav1 div p .small {
+  display: block;
+  font-size: small;
+}
+
+.nav1 .profile-icon {
+  display: inline-block;
+  padding: 0.8%;
+  font-size: x-large;
+  color: #1E3A8A;
+  background-color: rgb(231, 239, 241);
+  border-radius: 100%;
+  margin-left: 1%;
+}
+
+.nav1 .profile-icon .drpdwn-lgout{
+  color: #0e46a5;
+}
+
+
+.LoginModal Button{
+  background: linear-gradient(103.33deg,#0e46a5 -9.72%,#00b7ac 104.56%)!important;
+  padding: 2% 40%;
+  font-size: 600;
+  box-shadow: none;
+}
+
+.modal{ 
+  display: flex;
+  margin-top: -2%;
+}
+
+.modal .image{
+  background-image: url('https://mhfed.appiness.cc/_next/image?url=%2Fimages%2FauthImage.png&w=1920&q=75');
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin: -5% 0%;
+  width: 50%;
+  height: 100%;
+  padding-top: 60%;
+  padding-bottom: 2%;
+  
+}
+
+.modal .content, .modal .otp , .modal .detail,.modal .content1, .modal .otp1 {
+  width: 50%;
+  background-color: #F3F4F6;
+  padding: 5% 7%;
+}
+
+.modal .content h1, .modal .otp h1, .modal .content1 h1, .modal .otp1 h1 {
+  text-align: left;
+  color: #4B5563;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0;
+}
+.modal .content h2 , .modal .otp h2, .modal .content1 h2, .modal .otp1 h2{
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.modal .content hr, .modal .otp hr, .modal .content1 hr, .modal .otp1 hr{
+  opacity: 20%;
+}
+.modal .otp p{
+  margin: 7%;
+}
+
+.modal .content form, .modal .otp form , .modal .content1 form, .modal .otp1 form  {
+  margin-top: 8%;
+  background-color: white;
+  /* display: grid; */
+  border-radius: 5%;
+  padding: 1em;
+  text-align: left;
+}
+.modal .content form label, .modal .otp form label, .modal .content1 form label, .modal .otp1 form label{
+  text-align: left;
+  opacity: 70%;
+  padding-bottom: 2%;
+}
+.modal .content form input, .modal .otp form input, .modal .content1 form input, .modal .otp1 form input{
+  border: none;
+  height: 3em;
+}
+.modal .content form input:focus , .modal .otp form input:focus, .modal .content1 form input:focus,
+.modal .otp1 form input:focus{
+  outline: none;
+}
+.modal .otp form h6, .modal .otp1 form h6{
+  color: blue;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.modal .content .signin-btn , .modal .otp .verify , .modal .detail .detailsbutton, .modal .content1 .signin-btn,
+.modal .otp1 .verify  {
+  font-size: 1em;
+  background-color: rgb(30,64,175);
+  color: white;
+  padding: 4% 6%;
+  border: none;
+  border-radius: 5px;
+  margin: 5%;
+}
+
+.modal .content span, .modal .content1 span{
+  text-decoration: underline;
+}
+.modal .content div,.modal .content1 div{
+padding-top: 2%;
+}
+.modal .content p, .modal .content1 p{
+  color: rgb(33,99,174);
+  margin-top: 25%;
+}
+
+.modal .detail hr{
+  opacity: 20%;
+}
+.modal .detail h1{
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+.modal .detail form div{
+  margin-top: 8%;
+  background-color: white;
+  /* display: grid; */
+  border-radius: 5%;
+  padding: 1.5em;
+  text-align: left;
+}
+
+.modal .detail form div label{
+  text-align: left;
+  opacity: 70%;
+  padding-bottom: 2%;
+}
+
+.modal .detail form div input{
+  border: none;
+  height: 2em;
+  width: 100%;
+}
+
+.modal .detail form div select{
+  border: none;
+  height: 2em;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.modal .detail form div input:focus, .modal .detail form div select:focus{
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+.nav2 {
+  /* background-image: linear-gradient(to right, blue, rgb(71, 164, 201)); */
+  background: linear-gradient(90deg, #0e46a5, #00b7ac);
+}
+
+.nav2 .links {
+  margin-left: 40%;
+
+}
+
+.nav2 a {
+  color: white;
+  padding-left: 2%;
+}
+
+.nav2 .btns .spt-btn {
+  padding: 0.7rem 1.8rem;
+  color: rgb(63, 28, 221);
+  background-color: white;
+  margin: 10px;
+  border: 2px;
+  border-radius: 10px;
+}
+
+.nav2 .btns .vdo-btn {
+  padding: 0.7rem 1.8rem;
+  margin: 10px;
+  border: 2px;
+  border-radius: 10px;
+  background-color: rgb(80, 5, 199);
+  color: white;
+}
+
+.nav2 .btns .vdo-btn .icons {
+  color: white;
+  padding: 5px;
+
+}
+
+
+.nav2 .btns .icons {
+  font-size: medium;
+  color: #1E3A8A;
+  padding: 5px;
+}
+
+.top .image:hover {
+  cursor: pointer;
+}
+
+.top h1 {
+  margin: 2%;
+  margin-left: 7%;
+  color: rgb(83, 83, 190);
+  font-family: inter, sans-serif;
+}
+
+.appointment {
+  display: flex;
+  background-image: linear-gradient(to right, blue, rgb(79, 183, 224));
+  border-radius: 10px;
+  margin: 2% 7%;
+}
+
+.appointment .content {
+  width: 100%;
+}
+
+.appointment .image {
+  margin-right: 7%;
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-image: url('https://mhfed.appiness.cc/_next/image?url=%2Fimages%2FflowerBg.png&w=384&q=75');
+}
+
+.appointment .content {
+  color: white;
+  margin: 2%;
+}
+
+.appointment h2,
+.appointment h3 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.appointment button {
+  color: #1E3A8A;
+  background-color: white;
+  border: 2px;
+  height: 2.5rem;
+  margin-left: 2%;
+  padding: 2% 3%;
+  border-radius: 7px;
+}
+
+.service,
+.packages,
+.doctor {
+  margin: 2% 7%;
+}
+
+
+.service .title {
+  display: flex;
+}
+
+.service .title h1 {
+  font-weight: 400;
+  color: rgb(106, 147, 236);
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.service .sec {
+  width: 8%;
+  height: 80px;
+}
+
+.service .sec .img {
+  background-image: linear-gradient(to right, rgb(53, 53, 238), rgb(100, 91, 231));
+  width: 50%;
+  padding: 13%;
+  height: 60%;
+  border-radius: 50%;
+}
+
+.services .img {
+  background: linear-gradient(101.56deg, #0e46a5 -11.18%, #00b7ac 243.42%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65%;
+  width: 25%;
+  border-radius: 10px;
+  margin: 6% 4%;
+
+}
+
+.services .img .image {
+  justify-content: center;
+  width: 30px;
+}
+
+.services .sec1 {
+  width: 49%;
+  display: flex;
+  border: blue 1px solid;
+  border-radius: 10px;
+  padding: 1.5% 0%;
+}
+
+.services .sec1 .para h1 {
+  color: rgb(38, 38, 240);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.services .sec1 .para small {
+  color: rgb(131, 104, 252);
+}
+
+.services .sec1 .para .package {
+  color: rgb(131, 104, 252);
+}
+
+.packages .sect1,
+.packages .sect2 {
+  display: flex;
+}
+
+.packages .sect1 .image {
+  background: linear-gradient(101.56deg, #0e46a5 -11.18%, #00b7ac 243.42%);
+  width: 50%;
+  padding: 13%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.packages .sect1 h1 {
+  margin: 10px;
+  color: rgb(97, 139, 231);
+  font-weight: 400;
+  width: 70%;
+}
+
+.packages .sect1 p {
+  width: 20%;
+  display: flex;
+  justify-content: end;
+  font-weight: 500;
+}
+
+.packages .sect2 .img {
+  margin: 2%;
+}
+
+.packages .sect2 {
+  margin-top: 2%;
+}
+
+.packages .sect2 h2 {
+  font-weight: 450;
+}
+
+.packages .sect2 p {
+  font-size: large;
+}
+
+.doctor .title .sect1 {
+  display: flex;
+}
+
+.doctor .title .sect1 .image {
+  background-image: linear-gradient(to right, rgb(53, 53, 238), rgb(100, 91, 231));
+  width: 50%;
+  padding: 13%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.doctor .img .image {
+  justify-content: center;
+  width: 30px;
+}
+
+.doctor .sect1 h1 {
+  margin: 10px;
+  color: rgb(97, 139, 231);
+  font-weight: 400;
+  width: 80%;
+}
+
+.doctor .categry {
+  display: flex;
+}
+
+.doctor .categry .cat {
+  width: 20%;
+  margin: 3.5%;
+}
+
+.doctor .categry .cat .t-img {
+  background: linear-gradient(101.56deg, #0e46a5 -11.18%, #00b7ac 243.42%);
+  height: 75%;
+  border-radius: 50%;
+  padding: 25%;
+}
+
+.doctor .categry .cat h5 {
+  color: #565858;
+  font-size: large;
+  font-weight: 500;
+  margin: 10% 13%;
+}
+
+.banner2 {
+  padding: 8%;
+  color: white;
+  background-image: url('https://mhfed.appiness.cc/_next/image?url=%2Fimages%2Fsection%2Fsection2.png&w=1920&q=75');
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.banner2 section {
+  margin-left: 8%;
+}
+
+.banner2 h1 {
+  font-size: 2.2em;
+  font-weight: 450;
+  margin-bottom: 2%;
+}
+
+.banner2 h2 {
+  font-size: 1.5em;
+  font-weight: 450;
+  margin-top: 0;
+  margin-bottom: 3%;
+}
+
+.banner2 h3 {
+  font-size: 1.4em;
+  font-weight: 450;
+}
+
+.banner2 button {
+  padding: 1.5% 2%;
+  background-color: #00b7ac;
+  border: 1px;
+  border-radius: 8px;
+}
+
+.banner3 {
+  background-image: url('https://mhfed.appiness.cc/_next/image?url=%2Fimages%2FhomepageChooseManipalBg.png&w=1920&q=75');
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding: 10% 4%;
+}
+
+.banner3 .main {
+  background: linear-gradient(103.33deg, #0e46a5 -9.72%, #00b7ac 104.56%);
+  border-radius: 8px;
+  color: white;
+}
+
+.banner3 .main .sec {
+  text-align: center;
+  padding-top: 2.5%;
+}
+
+.banner3 .main .sec h1 {
+  font-size: 2.3rem;
+  font-weight: 450;
+  margin: 0;
+}
+
+.banner3 .main .sec1 {
+  margin: 2%;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.banner3 .main .flexing {
+  display: flex;
+  margin: 1% 4%;
+  padding-bottom: 5%;
+}
+
+.banner3 .main .flexing .sub-flex {
+  display: flex;
+  width: 16.6%;
+}
+
+.banner3 .main .flexing .sub-flex .img {
+  background-color: white;
+  border-radius: 50%;
+  padding: 3%;
+  margin: 2.5%;
+}
+
+.banner3 .main .flexing .sub-flex .cnt h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.banner3 .main .flexing .sub-flex .cnt p {
+  padding: 0;
+  margin: 0;
+  font-size: small;
+}
+
+.works .head h1 {
+  text-align: center;
+  color: rgb(106, 24, 182);
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.banner4 {
+  display: flex;
+  background-color: #62ccc6;
+}
+
+.banner4 .b4-img {
+  width: 50%;
+  /* padding-left: 10%; */
+  margin-left: 0%;
+  background-image: url('https://mhfed.appiness.cc/_next/image?url=%2Fimages%2Fpattern.png&w=750&q=75');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner4 .content {
+  margin-top: 10%;
+}
+
+.banner4 .content h3 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.banner4 .content h1 {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.footers {
+  background-color: #343a40;
+}
+
+.footer {
+  display: flex;
+}
+
+.footer .logo {
+  margin: 2% 4%;
+}
+
+.footer .logo p {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .logo .social {
+  margin: 10% 0%;
+}
+
+.footer .logo .btn1 {
+  background-color: #0e46a5;
+  padding: 3% 6%;
+  border-radius: 10px;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7%;
+}
+
+.footer .logo .btn1 div {
+  color: white;
+}
+
+.footer .location {
+  margin: 2% 3%;
+}
+
+.footer .location h6 {
+  color: white;
+  font-size: large;
+  margin: 5% 0% 0% 0%;
+}
+
+.footer .location li {
+  list-style: none;
+  color: rgb(132, 132, 133);
+  font-size: small;
+  margin: 3% 0%;
+}
+
+.footer .lct {
+  margin: 5% 3%;
+}
+
+.footer .lct li {
+  list-style: none;
+  color: rgb(132, 132, 133);
+  font-size: small;
+  margin: 3% 0%;
+}
+
+
+.footer .location li:hover,
+.footer .lct li:hover {
+  color: white;
+}
+
+.footer .serv h6 {
+  color: white;
+  font-size: large;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footer .serv p {
+  color: rgb(132, 132, 133);
+  font-size: small;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footer .serv p:hover {
+  color: white;
+}
+
+.footer .serv div {
+  padding: 2% 0%;
+  margin: 2% 0%;
+}
+
+.footers .footer1 {
+  background-color: rgba(0, 183, 172);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footers .footer1 li {
+  color: white;
+  list-style: none;
+  padding: 1% 5%;
+  font-size: small;
+}
+
+.footers .copy {
+  display: flex;
+}
+
+.footers .copy p {
+  padding: 0.4% 4%;
+  color: rgb(132, 132, 133);
+}
+
+.footers .copy .list {
+  width: 60%;
+  padding: 2% 2%;
+  display: flex;
+  justify-content: end;
+  color: rgb(132, 132, 133);
+}
+
+.footers .copy .list li {
+  list-style: none;
+  padding: 0% 2%;
+}
+
+.health .none{
+  text-align: center;
+  font-size: 1.5em;
+  color:  rgb(79, 83, 88);
+  font-weight: 400;
+}
+
+.health .hpackages{
+  margin: 4%;
+}
+.health .image{
+  padding: 2% 8%;
+}
+.health .hpackages .ccontent{
+  margin-left: 4%;
+}
+
+.health .hpackages .btn1{
+  background-color: white;
+  color: #0072F5;
+  padding: 12% 25%;
+  border: 2px solid #0072F5;
+  border-radius: 5px;
+}
+
+.DoctorApntmt, .health {
+  background-color: rgb(243,244,246);
+}
+.DoctorApntmt .image{
+  padding: 2% 8%;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .services {
+    display: block;
+  }
+  .services .sec1{
+    width: 100%;
+    margin: 2%;
+  }
+  .service .sec1 .img{
+    width: 10%;
+  }
+  .packages .sect2{
+    display: block;
+    text-align: center;
+  }
+  .doctor .categry {
+    display: block;
+    width: 100%;
+    text-align: -webkit-center;
+  }
+.doctor .categry .cat h5 {
+  width: 100%;
+}
+.doctor .categry .cat {
+  justify-content: center;
+}
+.footer{
+  display: block;
+  margin: 2%;
+}
+.footers .copy  {
+  display: block;
+}
+
+
 }
