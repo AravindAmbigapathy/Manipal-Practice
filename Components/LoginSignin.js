@@ -3,17 +3,13 @@ import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import Image from 'next/image';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import axios from "axios";
-import { useCookies } from "react-cookie";
-import { CookiesProvider } from 'react-cookie';
-import { addData } from "../redux/action/action";
-import { useDispatch, useSelector } from "react-redux";
+import { setCookie } from "cookies-next";
 
 function LoginSignin(props) {
     const [visible, setVisible] = React.useState(false);
     const handler = () => setVisible(true);
     // const dispatch = useDispatch();
 
-    const [cookie, setCookie] = useCookies(['token']);
     const [mobile, setMobile] = useState('')
     const [mobile1, setMobile1] = useState('')
     const [otp, setotp] = useState('')
@@ -132,13 +128,10 @@ function LoginSignin(props) {
                     token: response.data.token
                 })
                 closeHandler()
-                console.log(userDetails)
-                // dispatch(addData(userDetails))
-
-                // document.cookie = `token=${response.data.token}`;
+                setCookie('JWT', response.data.token);
             })
             .catch(function (error) {
-                
+
                 console.log(error);
             });
     }
@@ -171,7 +164,6 @@ function LoginSignin(props) {
                 })
                     .then(function (response) {
                         console.log(response);
-                        console.log(response.data);
                         setuserDetails({
                             ...userDetails,
                             first_name: response.data.data.first_name,
@@ -180,7 +172,6 @@ function LoginSignin(props) {
                             email: response.data.data.email,
                             gender: response.data.data.gender
                         })
-                        console.log(userDetails)
                         props.setuserData({
                             ...userDetails,
                             first_name: response.data.data.first_name,
@@ -190,7 +181,7 @@ function LoginSignin(props) {
                             gender: response.data.data.gender,
                             token: response.data.token
                         })
-                        // document.cookie = `token=${response.data.token}`;
+                        setCookie('JWT', response.data.token)
                         closeHandler()
                     })
                     .catch(function (error) {

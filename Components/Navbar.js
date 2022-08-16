@@ -5,25 +5,24 @@ import { FiLogOut } from 'react-icons/fi';
 import { BsCameraVideo } from 'react-icons/bs';
 import { GoLocation } from 'react-icons/go';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Profile from "../JSON/locationlist.json";
 import LoginSignin from './LoginSignin';
 import { Dropdown, Avatar, Text, Grid, User } from "@nextui-org/react";
-import { useCookies } from 'react-cookie';
 import { locationSlash } from 'fontawesome';
 import axios from 'axios';
 import React from "react";
 import { Modal, Button, Input, Row, Checkbox } from "@nextui-org/react";
+import { deleteCookie, getCookie, setCookie } from 'cookies-next';import { NextResponse, NextRequest } from 'next/server'
 
 function Navbar(props) {
     const router = useRouter()
     const { locations } = router.query
-    const [cookie, setCookie, removeCookie] = useCookies(['token']);
-
+    const [path, setpath] = useState('second')
     const [loc, setloc] = useState('Turn On Location')
-    const [loggedin, setloggedin] = useState('')
+    const [loggedin, setloggedin] = useState(false)
     const [userData, setuserData] = useState({
         first_name: '',
         last_name: '',
@@ -37,15 +36,16 @@ function Navbar(props) {
 
     const [visible, setVisible] = React.useState(false);
     const handler = () => setVisible(true);
+    const [cookie, setcookie] = useState('')
 
     const closeHandler = () => {
         setVisible(false);
         console.log("closed");
     };
 
-    setCookie('token', userData.token, { path: '/' });
-
     // console.log(Profile)
+    
+
 
     useEffect(() => {
 
@@ -55,25 +55,64 @@ function Navbar(props) {
             }
         }
     }, [locations])
-    // const loggedIn = () => {
-    // }
-    // console.log(userData)
 
-    const loggingOut = () => {
-        removeCookie('token');
-        console.log('out')
+
+    useEffect(() => {
+        setcookie(getCookie("JWT"))
+        console.log(getCookie('JWT'))
+        if ((getCookie("JWT"))) {
+            axios.get("https://mhbed.appiness.cc/api/user/switch-user/list/", {
+                headers: {
+                    Authorization: getCookie("JWT"),
+                }
+            }).then((response) => {
+                console.log(response.data.user_list[0]);
+                setuserData({
+                    ...userData,
+                    first_name: response.data.user_list[0].first_name,
+                    last_name: response.data.user_list[0].last_name,
+                    email: response.data.user_list[0].email,
+                })
+                // console.log(userData)
+            })
+                .catch((error) => {
+                    console.log(error);
+                    deleteCookie('JWT');
+                    
+                });
+        }
+    }, [])
+
+
+    async function loggingOut() {
+        const headers = {
+            "Content-Type": "application/json",
+            Authorization: `JWT ${getCookie("token")}`,
+        };
+        const res = await axios.post(
+            "https://mhbed.appiness.cc/api/user/logout/",
+            {},
+            {
+                headers: headers,
+            }
+        );
+        console.log(res);
+        deleteCookie('JWT');
+        setuserData({ userData, first_name: '' })
     }
+
+
 
     const packages = () => {
         console.log('calling')
-        axios.get(`https://mhbed.appiness.cc/api/user/health-checkup/health-pack-list/?hospital_code=${locations}&next_page_id=1&page_size=12&is_popular=false`, {
-            hospital_code: 'MHB',
+        axios.get(`https://mhbed.appiness.cc/api/user/health-checkup/health-pack-list/?hospital_code=${locations}&next_page_id=1&page_size=12 &is_popular=false`, {
+            hospital_code: locations,
             next_page_id: 1,
             page_size: 12,
             is_popular: false
         })
             .then((response) => {
-                console.log(response.data.results);
+                console.log(response);
                 props.setHealthPackages(response.data.results)
 
                 console.log('called1')
@@ -82,16 +121,19 @@ function Navbar(props) {
                 console.log(error);
             });
     }
-
+ 
+    const cartpage=()=>{
+        Router.push(`/${locations}/cart`)
+    }
     return (
         <div>
             <nav className="nav1">
                 <span className='logo'>
                     <Image
                         src="https://mhfed.appiness.cc/icons/manipalHospitalsLogo.svg"
-                        height={50}
+                        height={60}
                         alt="Picture of the author"
-                        width={120}
+                        width={140}
                     />
                 </span>
                 <div className='navHalf'>
@@ -292,7 +334,7 @@ function Navbar(props) {
                             </div>
 
 
-                            <span className='profile-icon'><BsCart2 /></span>
+                            <span className='profile-icon' onClick={cartpage}><BsCart2 /></span>
                         </div>
                         :
                         <div className='Bsignup'>

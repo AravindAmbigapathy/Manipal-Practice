@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
 import Appointment from '../../Components/appointment'
 import Banner1 from '../../Components/Banner1'
 import Banner2 from '../../Components/Banner2'
@@ -12,9 +13,10 @@ import Works from '../../Components/works'
 import styles from '../../styles/Home.module.css'
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
-        <Head>
+      <Head>
         <title>Manipal Hospital</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
