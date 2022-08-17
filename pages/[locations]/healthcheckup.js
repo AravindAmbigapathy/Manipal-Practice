@@ -19,6 +19,7 @@ function HealthCheckup(props) {
   const [pageNumber, setpageNumber] = useState(1)
   const [PackNum, setPackNum] = useState('')
   const [searchVal, setsearchVal] = useState('')
+  const [added, setadded] = useState('Add')
   // const [addButton, setaddButton] = useState(Add)
   const [first, setfirst] = useState({
     backgroundColor: 'blue',
@@ -28,7 +29,6 @@ function HealthCheckup(props) {
     backgroundColor: 'white',
     color: 'black'
   })
-
 
   useEffect(() => {
 
@@ -96,32 +96,73 @@ function HealthCheckup(props) {
 
     return arr
   }
-const token=getCookie("JWT")
+  const token = getCookie("JWT")
 
-  const  addToCart = async (id, uprice, tprice) => {
-    console.log('clicked')
-    console.log(token)
-    console.log(id, uprice, tprice)
+  // const addToCart = async (id, uprice, tprice) => {
+  //   console.log('clicked')
+  //   console.log(token)
+  //   console.log(id, uprice, tprice)
 
-   await axios.post("https://mhbed.appiness.cc/api/user/cart/add-item/",
-    
-      {
+  // await axios.post("https://mhbed.appiness.cc/api/user/cart/add-item/",{
+  //     product_id: id,
+  //     unit_price: uprice,
+  //     total_price: tprice
+  //   },{
+  //   headers: {
+  //     Authorization: token
+  //   }}).then((response) => {
+  //     console.log(response);
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  // }
+
+  const adding = async (index, id, uprice, tprice) => {
+    let value = document.querySelector(`#c${index}`)
+    if (value.innerText === 'Added') {
+      value.textContent = 'Add'
+      value.style.backgroundImage='linear-gradient(103.33deg,white,white 104.56%)'
+      value.style.color='blue'
+      console.log(id)
+      // axios.get('https://mhbed.appiness.cc/api/user/cart/list/', {
+      //   headers: {
+      //     Authorization: getCookie("JWT")
+      //   }
+      // }).then((response) => {
+      //   console.log(response.data.data[index].item_id);
+      //   axios.delete(`https://mhbed.appiness.cc/api/user/cart/delete-item/${response.data.data[index].item_id}/`, {
+      //     headers: {
+      //       Authorization: getCookie("JWT")
+      //     }
+      //   }).then((response) => {
+      //     console.log(response);
+      //   }).catch((error) => {
+      //     console.log(error);
+      //   });
+      // })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+    }
+    else {
+      value.textContent = 'Added'
+      value.style.backgroundImage='linear-gradient(103.33deg,#0e46a5,#00b7ac 104.56%)'
+      value.style.color='white'
+      await axios.post("https://mhbed.appiness.cc/api/user/cart/add-item/", {
         product_id: id,
         unit_price: uprice,
         total_price: tprice
-      },{
+      }, {
         headers: {
           Authorization: token
         }
-      })
-      .then((response) => {
+      }).then((response) => {
         console.log(response);
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.log(error);
-      });
+      })
+    }
   }
-
 
 
   return (
@@ -205,7 +246,10 @@ const token=getCookie("JWT")
                         </Row>
                         <Row>
 
-                          <button className='btn1' onClick={() => { addToCart(item.id, item.price, item.final_price) }} >Add <BsCart2 /></button>
+                          <button className='btn1' id={`c${index}`} onClick={() => {
+                            // addToCart()
+                            adding(index, item.id, item.price, item.final_price)
+                          }}  >Add <BsCart2 /></button>
                         </Row>
                       </Card.Footer>
                     </Card>

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
-import { Router, useRouter } from 'next/router';
+import  Router, {useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { BsArrowLeftShort } from 'react-icons/bs';
 import Profile from '../../JSON/locationlist.json';
 import { Card, Grid, Row, Text } from "@nextui-org/react";
 import Link from 'next/link';
 import Image from 'next/image';
+import { NextResponse } from 'next/server';
 
 
 function Cart() {
@@ -17,6 +18,7 @@ function Cart() {
     const [packs, setpacks] = useState([])
     const [header, setheader] = useState('cart')
 
+    
     useEffect(() => {
         axios.get('https://mhbed.appiness.cc/api/user/cart/list/', {
             headers: {
@@ -28,12 +30,11 @@ function Cart() {
                 setpacks(response.data.data)
             })
             .catch((error) => {
-                // Router.push(`${locations}`);
-                router.reload(window.location.pathname)
+                Router.push('http://localhost:3000/MMH')
                 console.log(error);
             });
 
-    }, [])
+    }, [deleteItem])
 
 
 
@@ -45,10 +46,9 @@ function Cart() {
             }
         }
     }, [])
-
-    const deleteItem = (item) => {
-        console.log(item.item_id)
-        axios.delete(`https://mhbed.appiness.cc//api/user/cart/delete-item/${item.item_id}/`, {
+    
+    function deleteItem(item) {
+        axios.delete(`https://mhbed.appiness.cc/api/user/cart/delete-item/${item.item_id}/`, {
             headers: {
                 Authorization: getCookie("JWT")
             }

@@ -3,6 +3,8 @@ import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import Image from "next/image";
 import { Dropdown, Avatar, Grid, User } from "@nextui-org/react";
 import { IoMdArrowDropdown } from 'react-icons/io';
+import Search from "react-select-search";
+import "react-select-search/style.css";
 
 
 export default function Filtering() {
@@ -12,7 +14,32 @@ export default function Filtering() {
     const closeHandler = () => {
         setVisible(false);
         console.log("closed");
+
     };
+
+    let arr = ['Orthopaedics',
+        'Cardiology',
+        'Cardiothoracic', 'Vascular Surgery',
+        'Neurology',
+        'Neurosurgery',
+        'Nephrology',
+        'Paediatric And Child Care',
+        'Psychiatry',
+        'Urology',
+        'Internal Medicine',
+        'Sports Medicine',
+        'Ear Nose Throat',
+        'Dermatology',
+        'Dental Medicine',
+        'Ophthalmology']
+
+    const options = arr.map((_, index) => ({
+        name: _,
+        value: _
+    }));
+    <div >
+
+    </div>
 
     return (
         <div className="filter">
@@ -41,41 +68,19 @@ export default function Filtering() {
                         <Text size={24}>Select Speciality</Text>
                     </Row>
                     <hr />
-                    {/* <div >
-                        <Grid.Container justify="flex-start" gap={2}>
-                            <Grid className="fgrid">
-                                <Dropdown placement="bottom-left" >
-                                    <Dropdown.Trigger >
-                                        <div className="fselect">select Speciality
-                                            <span><IoMdArrowDropdown /></span>
-                                        </div>
-                                    </Dropdown.Trigger>
-                                    <Dropdown.Menu color="secondary" aria-label="Avatar Actions" >
+                    <div className="dropdown">
 
-                                        <Dropdown.Item key="settings" className="drpdn">
-                                        <li>Orthopaedics</li>
-                                        <li>Cardiology</li>
-                                        <li>Cardiothoracic Vascular Surgery</li>
-                                        <li>Neurology</li>
-                                        <li>Neurosurgery</li>
-                                        <li>Nephrology</li>
-                                        <li>Paediatric And Child Care</li>
-                                        <li>Psychiatry</li>
-                                        <li>Urology</li>
-                                        <li>Internal Medicine</li>
-                                        <li>Sports Medicine</li>
-                                        <li>Ear Nose Throat</li>
-                                        <li>Dermatology</li>
-                                        <li>Dental Medicine</li>
-                                        <li>Ophthalmology</li>
-                                        </Dropdown.Item>
-                                       
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Grid>
+                        <Search
+                            style={{width: `500px`}}    
+                            options={options}
+                            onChange={(selected) => console.log(selected)}
+                            placeholder="Select Speciality"
+                        />
 
-                        </Grid.Container>
-                    </div> */}
+                    </div>
+
+
+
                     <Row className="row">
                         <Text size={24}>By age</Text>
                     </Row>
