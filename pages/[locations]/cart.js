@@ -17,7 +17,7 @@ function Cart() {
     const [loc, setloc] = useState('Turn On Location')
     const [packs, setpacks] = useState([])
     const [header, setheader] = useState('cart')
-
+    const [count, setcount] = useState(0)
     
     useEffect(() => {
         axios.get('https://mhbed.appiness.cc/api/user/cart/list/', {
@@ -34,7 +34,7 @@ function Cart() {
                 console.log(error);
             });
 
-    }, [deleteItem])
+    }, [count])
 
 
 
@@ -45,21 +45,9 @@ function Cart() {
                 setloc(Profile[i].name)
             }
         }
-    }, [])
+    }, [locations])
     
-    function deleteItem(item) {
-        axios.delete(`https://mhbed.appiness.cc/api/user/cart/delete-item/${item.item_id}/`, {
-            headers: {
-                Authorization: getCookie("JWT")
-            }
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+    
 
     return (
         <div className='cartPage'>
@@ -94,7 +82,18 @@ function Cart() {
                                                         height={20}
                                                         alt="Picture of the author"
                                                         onClick={() => {
-                                                            deleteItem(item)
+                                                                axios.delete(`https://mhbed.appiness.cc/api/user/cart/delete-item/${item.item_id}/`, {
+                                                                    headers: {
+                                                                        Authorization: getCookie("JWT")
+                                                                    }
+                                                                })
+                                                                    .then((response) => {
+                                                                        console.log(response);
+                                                                        setcount(count+1)
+                                                                    })
+                                                                    .catch((error) => {
+                                                                        console.log(error);
+                                                                    });
                                                         }}
                                                         width={20} />
                                                 </p>

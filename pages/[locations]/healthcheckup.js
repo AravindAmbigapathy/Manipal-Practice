@@ -6,8 +6,15 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import Image from 'next/image';
 import Profile from "../../JSON/locationlist.json";
 import axios from 'axios';
-import Filtering from '../../Components/filtering';
+// import Filtering from '../../Components/filtering';
 import { getCookie } from 'cookies-next';
+
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
+const DynamicHeader = dynamic(() => import('../../Components/filtering'), {
+  suspense: true,
+})
 
 function HealthCheckup(props) {
   const router = useRouter()
@@ -30,6 +37,7 @@ function HealthCheckup(props) {
     color: 'black'
   })
 
+  // page1()
   useEffect(() => {
 
     for (let i = 0; i < Profile.length; i++) {
@@ -40,10 +48,10 @@ function HealthCheckup(props) {
   }, [locations])
   const packs = props.healthPackages
   useEffect(() => {
+    page1()
     console.log('packs =', packs)
-    // page1()
     console.log(packs)
-  }, [])
+  }, [packs])
 
 
   const page1 = () => {
@@ -92,8 +100,7 @@ function HealthCheckup(props) {
   }
 
   const checkFilter = (arr) => {
-    console.log(arr)
-
+    // console.log(arr)
     return arr
   }
   const token = getCookie("JWT")
@@ -121,8 +128,8 @@ function HealthCheckup(props) {
     let value = document.querySelector(`#c${index}`)
     if (value.innerText === 'Added') {
       value.textContent = 'Add'
-      value.style.backgroundImage='linear-gradient(103.33deg,white,white 104.56%)'
-      value.style.color='blue'
+      value.style.backgroundImage = 'linear-gradient(103.33deg,white,white 104.56%)'
+      value.style.color = 'blue'
       console.log(id)
       // axios.get('https://mhbed.appiness.cc/api/user/cart/list/', {
       //   headers: {
@@ -146,8 +153,8 @@ function HealthCheckup(props) {
     }
     else {
       value.textContent = 'Added'
-      value.style.backgroundImage='linear-gradient(103.33deg,#0e46a5,#00b7ac 104.56%)'
-      value.style.color='white'
+      value.style.backgroundImage = 'linear-gradient(103.33deg,#0e46a5,#00b7ac 104.56%)'
+      value.style.color = 'white'
       await axios.post("https://mhbed.appiness.cc/api/user/cart/add-item/", {
         product_id: id,
         unit_price: uprice,
@@ -186,7 +193,10 @@ function HealthCheckup(props) {
             />
             <hr />
             <span className='filterIcon'>
-              <Filtering />
+              <Suspense fallback={`Loading...`}>
+                <DynamicHeader />
+              </Suspense>
+              {/* <Filtering /> */}
             </span>
 
           </div>

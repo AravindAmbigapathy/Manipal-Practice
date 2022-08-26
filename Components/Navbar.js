@@ -346,7 +346,11 @@ function Navbar(props) {
 
             </nav >
             <nav className='nav2'>
+                
                 <span className='links'>
+                    <Link href={`/${locations}/Lab&Diagnostics`} >
+                        <a ><span>Lab & Diagnostics</span></a>
+                    </Link>
                     <Link href={`/${locations}/healthcheckup`} >
                         <a ><span onClick={packages}>Health Checkup Packages</span></a>
                     </Link>

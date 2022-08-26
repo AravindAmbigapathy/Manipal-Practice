@@ -9,7 +9,7 @@ function Footer() {
         <section className='logo'>
           <Image src='https://mhfed.appiness.cc/images/mh_white_logo.svg'
             alt='asd'
-            width={250}
+            width={120}
             height={100} />
           <p>Appointment Helpline: 1800 102 5555</p>
           <p>Email:info@manipalhospitals.com</p>

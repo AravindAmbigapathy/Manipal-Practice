@@ -317,16 +317,27 @@ body {
 .nav2 {
   /* background-image: linear-gradient(to right, blue, rgb(71, 164, 201)); */
   background: linear-gradient(90deg, #0e46a5, #00b7ac);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0% 5%;
 }
 
 .nav2 .links {
-  margin-left: 40%;
-
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  font-size: 0.9em;
 }
 
 .nav2 a {
   color: white;
-  padding-left: 2%;
+}
+
+.nav2 .btns {
+  display: flex;
+  width: 32%;
+  justify-content: space-evenly;
 }
 
 .nav2 .btns .spt-btn {
@@ -367,13 +378,16 @@ body {
 .top h1 {
   margin: 2%;
   margin-left: 7%;
-  color: rgb(83, 83, 190);
+  background: -webkit-linear-gradient(80deg, #0e46a5, #00b7ac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: inter, sans-serif;
+  font-weight: 400
 }
 
 .appointment {
   display: flex;
-  background-image: linear-gradient(to right, blue, rgb(79, 183, 224));
+  background-image: linear-gradient(103.33deg, #0e46a5 -9.72%, #00b7ac 104.56%);
   border-radius: 10px;
   margin: 2% 7%;
 }
@@ -524,10 +538,13 @@ body {
 
 .packages .sect2 h2 {
   font-weight: 450;
+  font-size: 1.2em;
+  color: rgb(55, 65, 81);
 }
 
 .packages .sect2 p {
   font-size: large;
+  color: rgb(38, 45, 56);
 }
 
 .doctor .title .sect1 {
@@ -535,7 +552,8 @@ body {
 }
 
 .doctor .title .sect1 .image {
-  background-image: linear-gradient(to right, rgb(53, 53, 238), rgb(100, 91, 231));
+  background-image: linear-gradient(103.33deg, #0e46a5 -9.72%, #00b7ac 104.56%);
+  ;
   width: 50%;
   padding: 13%;
   height: 90%;
@@ -612,6 +630,7 @@ body {
   background-color: #00b7ac;
   border: 1px;
   border-radius: 8px;
+  color: white;
 }
 
 .banner3 {
@@ -676,9 +695,11 @@ body {
 
 .works .head h1 {
   text-align: center;
-  color: rgb(106, 24, 182);
-  font-weight: 500;
-  font-size: 2.5rem;
+  background: -webkit-linear-gradient(90deg, #0643ac, #00b7ac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  font-size: 2.2rem;
 }
 
 .banner4 {
@@ -712,7 +733,7 @@ body {
 }
 
 .footers {
-  background-color: #343a40;
+  background-color: rgb(43, 43, 43);
 }
 
 .footer {
@@ -1107,7 +1128,7 @@ body {
 
 .cartPage .body .empty {
   padding: 7%;
-  color: rgb(3,79,161);
+  color: rgb(3, 79, 161);
   text-align: center;
 }
 
@@ -1115,61 +1136,67 @@ body {
   font-weight: 400;
 }
 
-.cartPage .body .cards{
-  
-}
-.cartPage .body .cards .pName{
+
+.cartPage .body .cards .pName {
   margin: 0;
   padding: 0;
-  font-size: 1.3em; 
+  font-size: 1.3em;
 }
 
-.cartPage .body .cards .tests{
+.cartPage .body .cards .tests {
   border: 1px solid gray;
   width: max-content;
   padding: 0.8% 0.5%;
   color: gray;
   border-radius: 0.4em;
 }
-.cartPage .body .cards .price{
+
+.cartPage .body .cards .price {
   width: 100%;
   display: flex;
 }
-.cartPage .body .cards .price p{
+
+.cartPage .body .cards .price p {
   color: #0072F5;
   font-weight: 400;
   font-size: 1.2em;
   margin: 2% 0%;
   width: 49%;
 }
-.cartPage .body .cards .price .image{
+
+.cartPage .body .cards .price .image {
   display: flex;
   justify-content: end;
 }
-.cartPage .body .cards .footer{
+
+.cartPage .body .cards .footer {
   display: flex;
   width: 98%;
 }
-.cartPage .body .cards .footer p select{
+
+.cartPage .body .cards .footer p select {
   color: #0072F5;
   border: 1px solid #0072F5;
   border-radius: 0.4em;
   width: 48%;
   padding: 2% 3%;
 }
-.cartPage .body .cards .footer .select{
+
+.cartPage .body .cards .footer .select {
   display: flex;
   justify-content: space-between;
   width: 50%;
   margin: 0;
 }
-.cartPage .body .cards .footer .btn{
+
+.cartPage .body .cards .footer .btn {
   display: flex;
   justify-content: end;
   width: 50%;
   margin: 0;
 }
-.cartPage .body .cards .footer p button{
+
+.cartPage .body .cards .footer p button {
   background: linear-gradient(103.33deg, #0e46a5 -9.72%, #00b7ac 104.56%);
   color: white;
   border: none;
@@ -1177,8 +1204,169 @@ body {
   padding: 3%;
 }
 
+.labDiag .header {
+  background-color: white;
+  display: flex;
+  padding: 1%;
+  margin: 2% 9% 1% 9%;
+  border-radius: 1em;
+  width: 82%;
+}
+
+.labDiag .header .fheader {
+  width: 28%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labDiag .header .fheader h1 {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.8em;
+}
+
+.labDiag .header .fheader p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.labDiag .header .arrow {
+  border: 1px skyblue solid;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 2.4em;
+  height: 1em;
+}
+
+.labDiag .header .sheader {
+  display: flex;
+  justify-content: end;
+  width: 70%;
+  align-items: center;
+}
+.labDiag .header .sheader .filterIcon {
+  padding-right: 3%;
+}
+
+.labDiag .header .sheader div {
+  display: flex;
+  width: 70%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+
+}
+
+.labDiag .header .sheader div input {
+  width: 90%;
+  border: none;
+  background: #FFFFFF;
+}
+
+.labDiag .header .sheader div input::focus {
+  border: none;
+}
+
+.labDiag .banner1 {
+  /* margin: 2% 8% 1% 8%; */
+  display: flex;
+  justify-content: center;
+}
 
 
+.labDiag .categry .header {
+  padding: 1%;
+  border-radius: 1em;
+  width: 82%;
+  margin: 2% 9% 1% 9%;
+  background-color: white;
+}
+
+.labDiag .categry .header h1 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-transform: capitalize;
+}
+
+.labDiag .categry .categeries {
+  margin: 2% 9% 1% 9%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.labDiag .popularTest {
+  margin: 2% 9% 1% 9%;
+
+}
+
+.labDiag .popularTest h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+}
+
+.labDiag .popularTest .ccontent {
+  margin-left: 4%;
+}
+
+.labDiag .popularTest .btn1 {
+  background-color: white;
+  color: #0072F5;
+  padding: 12% 25%;
+  border: 2px solid #0072F5;
+  border-radius: 5px;
+}
+
+.labDiag .fas {
+  margin: 2% 9% 1% 9%;
+}
+
+.labDiag .fas h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+}
+
+.labDiag .fas .border {
+  height: 2%;
+  width: 100%;
+  padding: 1%;
+  background: #FFFFFF;
+  border-style: solid;
+  /* border-image: linear-gradient(to right, #0E46A5, #00B7AC) 1; */
+  border-radius: 10px;
+  border-color: #346ed1;
+  margin-bottom: 1%;
+}
+
+.labDiag .fas .border .flexing {
+  display: flex;
+}
+
+.labDiag .fas .border .flexing p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  width: 80%;
+}
+
+.labDiag .fas .border .flexing div {
+  width: 20%;
+  font-size: 40px;
+  color: #034EA1;
+  font-weight: 300;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
 
 @media only screen and (max-width: 900px) {
   .services {
@@ -1234,7 +1422,8 @@ body {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #3e8e41;
 }
 
@@ -1249,7 +1438,9 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
+#myInput:focus {
+  outline: 3px solid #ddd;
+}
 
 .dropdown {
   position: relative;
@@ -1257,7 +1448,7 @@ body {
   width: 100%;
 }
 
-.select-search{
+.select-search {
   width: 100% !important;
 }
 
@@ -1278,6 +1469,10 @@ body {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+  display: block;
+}
